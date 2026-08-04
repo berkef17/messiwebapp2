@@ -3,8 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lionel Messi - Hakkında</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Lionel Messi</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f4f6f8;
+      color: #1c1c1c;
+      line-height: 1.6;
+    }
+    .hero {
+      background: linear-gradient(135deg, #75aadb, #004170);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero h1 { font-size: 3rem; }
+    .subtitle { margin-top: 10px; opacity: 0.9; }
+    main { max-width: 700px; margin: 30px auto; padding: 0 20px; }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .card h2 { margin-bottom: 12px; color: #004170; }
+    button {
+      margin-top: 12px;
+      background: #004170;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover { background: #75aadb; }
+    #fact { font-style: italic; min-height: 40px; }
+    footer { text-align: center; padding: 20px; color: #777; }
+  </style>
 </head>
 <body>
   <header class="hero">
@@ -14,50 +52,35 @@
 
   <main>
     <section class="card">
-      <h2>Kısa Biyografi</h2>
+      <h2>Hakkında</h2>
       <p>
-        Lionel Andrés Messi, 24 Haziran 1987'de Arjantin'in Rosario şehrinde doğdu.
-        Kariyerine Barcelona altyapısında (La Masia) başladı ve dünyanın en iyi
-        futbolcularından biri haline geldi. 2022 FIFA Dünya Kupası'nı Arjantin ile
-        kazanarak kariyerinin en büyük hedeflerinden birine ulaştı.
+        Lionel Messi, 1987 doğumlu Arjantinli futbolcudur. 8 Ballon d'Or,
+        4 Şampiyonlar Ligi ve 2022 Dünya Kupası şampiyonluğu ile tarihin
+        en iyi futbolcularından biri kabul edilir.
       </p>
     </section>
 
-    <section class="stats">
-      <div class="stat">
-        <span class="num">8</span>
-        <span class="label">Ballon d'Or</span>
-      </div>
-      <div class="stat">
-        <span class="num">4</span>
-        <span class="label">Şampiyonlar Ligi</span>
-      </div>
-      <div class="stat">
-        <span class="num">1</span>
-        <span class="label">Dünya Kupası</span>
-      </div>
-      <div class="stat">
-        <span class="num" id="goalCount">800+</span>
-        <span class="label">Kariyer Golü</span>
-      </div>
-    </section>
-
     <section class="card">
-      <h2>Kariyer Kulüpleri</h2>
-      <ul id="clubList"></ul>
-    </section>
-
-    <section class="card fact-section">
-      <h2>Rastgele Messi Bilgisi</h2>
+      <h2>Rastgele Bilgi</h2>
       <p id="fact">Butona tıkla!</p>
-      <button id="factBtn">Yeni Bilgi Göster</button>
+      <button onclick="showFact()">Yeni Bilgi Göster</button>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Messi Web App · berkef17</p>
-  </footer>
+  <footer>&copy; 2026 Messi Web App · berkef17</footer>
 
-  <script src="script.js"></script>
+  <script>
+    const facts = [
+      "Messi 8 kez Ballon d'Or kazandı.",
+      "2022 Dünya Kupası'nı Arjantin ile kazandı.",
+      "Barcelona ile 4 Şampiyonlar Ligi kupası aldı.",
+      "2011-12 sezonunda 91 gol atarak dünya rekoru kırdı.",
+      "La Liga tarihinin en golcü oyuncusudur."
+    ];
+    function showFact() {
+      const f = facts[Math.floor(Math.random() * facts.length)];
+      document.getElementById('fact').textContent = f;
+    }
+  </script>
 </body>
 </html>
